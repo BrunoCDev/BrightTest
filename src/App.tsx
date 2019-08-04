@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { getResult } from "./utils/task1";
+import { returnSpecificValue } from "./utils/task2";
+import { IResult } from "./types";
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface IAppState {
+  data: IResult[];
+}
+
+class App extends React.Component<any, IAppState> {
+  constructor(p: any) {
+    super(p);
+    this.state = {
+      data: getResult()
+    };
+  }
+
+  render() {
+    console.log(returnSpecificValue(["PPC - Brand", "2016-10-10 (Mon)"], 141));
+    return (
+      <div>
+        <p>test</p>
+      </div>
+    );
+  }
 }
 
 export default App;
