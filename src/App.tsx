@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import { getResult } from "./utils/task1";
-import { returnSpecificValue } from "./utils/task2";
 import { IResult } from "./types";
+import { Table, Search } from "./components";
 
 interface IAppState {
   data: IResult[];
@@ -17,10 +17,10 @@ class App extends React.Component<any, IAppState> {
   }
 
   render() {
-    console.log(returnSpecificValue(["PPC - Brand", "2016-10-10 (Mon)"], 141));
     return (
       <div>
-        <p>test</p>
+        <Search />
+        <Table Data={this.state.data} />
       </div>
     );
   }

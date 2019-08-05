@@ -42,3 +42,23 @@ function getMetrics(metrics: any) {
 export function getResult() {
   return parseData(data);
 }
+
+// Get the labels for the table.
+export function getLabels() {
+  const dates: string[] = [];
+  const names: string[] = [];
+  const result = getResult();
+
+  result.forEach(x => {
+    if (names.indexOf(x.name) === -1) {
+      names.push(x.name);
+    }
+    x.values.forEach(y => {
+      if (dates.indexOf(y.date) === -1) {
+        dates.push(y.date);
+      }
+    });
+  });
+
+  return { dates, names };
+}

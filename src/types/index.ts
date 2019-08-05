@@ -13,3 +13,8 @@ export interface IMetric {
   id: string;
   value: number;
 }
+
+export interface ILabels {
+  dates: string[];
+  names: string[];
+}
